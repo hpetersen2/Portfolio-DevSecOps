@@ -1,0 +1,47 @@
+// Maße laut Design: ca. 52 px hoch, 20 px Schrift
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  // Weiß, blauer Text (Hero "Contact me"). Hover: 85 % Weiß = #FFFFFFD9
+  &--light {
+    background: var(--white);
+    color: var(--blue);
+
+    &:hover {
+      background: var(--white-hover);
+    }
+  }
+
+  // Blau gefüllt (Documentation). Hover: #5696FF
+  &--primary {
+    background: var(--blue);
+    color: var(--white);
+
+    &:hover {
+      background: var(--blue-hover);
+    }
+  }
+
+  // Nur Rand (GitHub). Hover: leichter heller Hintergrund
+  &--outline {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+  }
+}
