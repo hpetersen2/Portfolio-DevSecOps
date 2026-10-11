@@ -1,0 +1,90 @@
+.projects {
+  // Design Desktop: Section 1673 -> 2342 px
+  --title-size-mobile: 48px;
+  padding-block: 70px 83px;
+
+  &__desktop {
+    display: grid;
+    grid-template-columns: 288px 1fr; // Liste 245 px + Abstand, Karte 913 px
+    margin-top: 66px;
+  }
+
+  &__list {
+    margin: 0 0 0 8px;
+    padding-left: 27px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+
+    li {
+      padding-block: 15px;
+      color: var(--white);
+      line-height: 23px;
+
+      // Nummer und Name sind im aktiven Eintrag dunkel
+      &.is-active {
+        color: var(--dark);
+      }
+    }
+
+    button {
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+    }
+  }
+
+  &__more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 8px;
+    margin-top: 8px;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--white);
+
+    span {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    &:hover span {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  &__mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 40px -11px 0; // Karten sind 364 px breit (13 px Rand)
+  }
+
+  &__more-text {
+    margin: 30px 11px 0;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  // Design Mobile: Section 1515 -> 3981 px
+  @media (max-width: 900px) {
+    padding-block: 19px 92px;
+
+    &__more {
+      align-self: center;
+      margin: 10px 0 0;
+      font-size: 20px;
+    }
+  }
+}
