@@ -1,5 +1,8 @@
-// Platzhalter: Eigene Bilder in src/assets/images/ ablegen und hier importieren
-import placeholderImage from '../assets/images/project-placeholder.svg';
+import babyToolsImage from '../assets/images/project-baby-tools-shop.svg';
+import truckSignsImage from '../assets/images/project-truck-signs-api.svg';
+import juiceShopImage from '../assets/images/project-owasp-juice-shop-master.svg';
+import minecraftImage from '../assets/images/project-minecraft.svg';
+import wordpressImage from '../assets/images/project-wordpress.svg';
 
 export interface Project {
   id: string;
@@ -20,8 +23,8 @@ export const projects: Project[] = [
     id: 'baby-tools',
     title: 'Baby Tools',
     description: placeholderText,
-    tags: ['HTML', 'CSS'],
-    image: placeholderImage,
+    tags: ['HTML','CSS', 'Python', 'Container'],
+    image: babyToolsImage,
     docsUrl: '#',
     githubUrl: '#',
   },
@@ -29,8 +32,8 @@ export const projects: Project[] = [
     id: 'truck-signs-api',
     title: 'Truck Signs API',
     description: placeholderText,
-    tags: ['Python', 'Container'],
-    image: placeholderImage,
+    tags: ['HTML', 'CSS', 'Python', 'Container'],
+    image: truckSignsImage,
     docsUrl: '#',
     githubUrl: '#',
   },
@@ -39,7 +42,7 @@ export const projects: Project[] = [
     title: 'Juice Shop Meister',
     description: placeholderText,
     tags: ['IT Security', 'Container'],
-    image: placeholderImage,
+    image: juiceShopImage,
     docsUrl: '#',
     githubUrl: '#',
   },
@@ -48,7 +51,7 @@ export const projects: Project[] = [
     title: 'Minecraft',
     description: placeholderText,
     tags: ['Yaml', 'Shell scripting', 'IT Security', 'Container'],
-    image: placeholderImage,
+    image: minecraftImage,
     docsUrl: '#',
     githubUrl: '#',
   },
@@ -57,7 +60,7 @@ export const projects: Project[] = [
     title: 'WordPress hosten',
     description: placeholderText,
     tags: ['Container', 'Yaml'],
-    image: placeholderImage,
+    image: wordpressImage,
     docsUrl: '#',
     githubUrl: '#',
   },
