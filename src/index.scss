@@ -1,0 +1,102 @@
+:root {
+  // Farben laut Design (Main colors)
+  --blue: #266ad9;
+  --blue-hover: #5696ff;
+  // Figma nennt #232A33, im Design-PNG gemessen ist es #262E34 -> PNG gilt
+  --dark: #262e34;
+  --white: #ffffff;
+  --white-hover: rgba(255, 255, 255, 0.85); // #FFFFFFD9
+  --light-blue: #91c9f3;
+
+  // Karten / Flächen
+  --card: #313e47; // = rgba(143, 204, 245, 0.1) auf --dark
+  --card-blue: #2f4563; // Projekt-Detailkarte
+  --panel-dark: #263444; // Skill-Carousel (mobile)
+  --panel-hover: #4f739a; // "How I used this skills" (= rgba(120,183,255,.5) auf --dark)
+
+  // Familiennamen kommen aus den @fontsource-variable-Paketen (siehe main.tsx)
+  --font-heading: 'Quicksand Variable', Arial, Helvetica, sans-serif;
+  --font-body: 'Reddit Sans Variable', Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--white);
+  background: var(--dark);
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+// Vollbreite Sections im Wechsel: Blau / Grau
+.section--blue {
+  background: var(--blue);
+}
+
+.section--dark {
+  background: var(--dark);
+}
+
+// Überschrift jeder Section (My skills, My project highlights, Contact me)
+// Mobile-Größe wird je Section über --title-size-mobile gesetzt (Design: 40 / 48 / 32 px)
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  @media (max-width: 900px) {
+    font-size: var(--title-size-mobile, 40px);
+  }
+}
+
+// Begrenzter Inhalt innerhalb vollbreiter Sections
+.container {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(24px, 8.33vw, 120px); // 120 px bei 1440 px Breite
+
+  @media (max-width: 900px) {
+    padding-inline: 24px;
+  }
+}
+
+// Nur für Screenreader sichtbar
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+// Desktop-/Mobile-Varianten desselben Inhalts
+.only-desktop {
+  @media (max-width: 900px) {
+    display: none !important;
+  }
+}
+
+.only-mobile {
+  @media (min-width: 901px) {
+    display: none !important;
+  }
+}
