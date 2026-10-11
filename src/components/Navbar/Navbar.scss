@@ -1,0 +1,137 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--blue);
+  transition: transform 0.3s ease;
+
+  &--hidden {
+    transform: translateY(-100%);
+
+    // Tastaturnutzer: Leiste wieder zeigen, sobald ein Link Fokus hat
+    &:focus-within {
+      transform: none;
+    }
+  }
+
+  // Design Desktop: 109 px hoch, Textoberkante bei y = 57 px
+  &__inner {
+    position: relative;
+    height: 109px;
+    padding-top: 48px;
+  }
+
+  &__burger {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 72px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Menüpunkte: weiß | Hover: unterstrichen | aktive Section: dunkel
+  a {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--white);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    &.is-active {
+      color: var(--dark);
+    }
+  }
+
+  // Design Mobile: nur Burger rechts oben (32 x 30 px, 34 px von oben), Menü als weiße Karte
+  @media (max-width: 900px) {
+    &__inner {
+      height: 90px;
+      padding-top: 34px;
+    }
+
+    &__burger {
+      position: absolute;
+      top: 34px;
+      right: 31px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 32px;
+      height: 30px;
+      padding: 0;
+      border: 0;
+      background: none;
+      cursor: pointer;
+
+      span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--white);
+        transition:
+          transform 0.2s ease,
+          width 0.2s ease,
+          opacity 0.2s ease;
+      }
+
+      // Hover: mittlere Linie kürzer, rechtsbündig
+      &:hover span:nth-child(2) {
+        width: 60%;
+        align-self: flex-end;
+      }
+
+      // Geöffnet: X
+      &.is-open {
+        justify-content: center;
+
+        span:nth-child(1) {
+          transform: translateY(1px) rotate(45deg);
+        }
+
+        span:nth-child(2) {
+          opacity: 0;
+        }
+
+        span:nth-child(3) {
+          transform: translateY(-1px) rotate(-45deg);
+        }
+
+        &:hover span {
+          height: 3px;
+        }
+      }
+    }
+
+    &__list {
+      display: none;
+      position: absolute;
+      top: 78px;
+      right: 24px;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px 24px;
+      background: var(--white);
+      border-radius: 16px;
+
+      &.is-open {
+        display: flex;
+      }
+    }
+
+    // Im geöffneten Menü: blaue Schrift auf Weiß
+    a,
+    a.is-active {
+      color: var(--blue);
+    }
+  }
+}
