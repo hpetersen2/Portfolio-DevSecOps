@@ -1,0 +1,104 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  align-items: center;
+  gap: 40px;
+  padding-block: 73px 86px;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  color: var(--white);
+
+  &__greeting {
+    font-size: 32px;
+    font-weight: 300;
+  }
+
+  &__name {
+    font-size: 88px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-block: 8px 24px;
+  }
+
+  &__role {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+
+  &__about {
+    max-width: 560px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 40px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 476px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 30px;
+  }
+}
+
+// Mobile (Design 390 px): Begrüßung, Name, Rolle, Foto, Text, Button untereinander.
+// Zwischen 600 und 900 px skaliert dasselbe Layout.
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-block: 0 41px;
+
+    // Text-Block auflösen, damit das Foto zwischen Rolle und Text sitzen kann
+    &__text {
+      display: contents;
+    }
+
+    &__greeting {
+      font-size: 24px;
+      line-height: 1.4;
+    }
+
+    &__name {
+      font-size: 48px;
+      line-height: 1;
+      margin-block: 8px 0;
+    }
+
+    &__role {
+      font-size: 24px;
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+
+    &__image {
+      order: 1;
+      width: calc(100% - 30px);
+      max-width: 440px;
+      height: auto;
+      aspect-ratio: 312 / 300;
+      margin: 31px 0 25px 8px;
+      border-radius: 24px;
+    }
+
+    &__about {
+      order: 2;
+      max-width: none;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.05;
+      margin-bottom: 19px;
+    }
+
+    &__cta {
+      order: 2;
+      text-align: center;
+
+      .button {
+        padding: 8px 18px;
+        font-size: 18px;
+      }
+    }
+  }
+}
