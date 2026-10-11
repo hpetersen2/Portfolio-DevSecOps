@@ -1,28 +1,33 @@
+// Desktop-Karte 378 x 201 px. Hover/Fokus: Inhalt wechselt innerhalb derselben Karte
+// zu "How I used this skill" (Hintergrund wie im Design: rgba(120,183,255,.5) auf Dunkel).
 .skill-card {
   position: relative;
+  min-height: 201px;
+  background: var(--card);
+  border-radius: 30px;
   outline: none;
+  transition: background-color 0.2s ease;
 
-  // Karte über den Nachbarn, solange das Panel offen ist
   &:hover,
+  &:focus-visible,
   &:focus-within {
-    z-index: 5;
+    background: var(--panel-hover);
   }
 
-  &__box {
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--white);
+  }
+
+  // Ansicht ohne Hover: Icon + Label
+  &__face {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    min-height: 201px; // Design: Karte 378 x 201 px
+    min-height: inherit;
     padding: 24px;
-    background: var(--card);
-    border-radius: 30px;
-  }
-
-  &:focus-visible &__box {
-    outline: 2px solid var(--white);
-    outline-offset: 2px;
+    transition: opacity 0.2s ease;
   }
 
   &__label {
@@ -35,41 +40,42 @@
     color: var(--white);
   }
 
-  // Hover-Panel: 20 px unter der Karte, gleiche Breite, überlagert die nächste Zeile
+  // Ansicht bei Hover: liegt deckungsgleich über der Karte, Inhalt vertikal zentriert
   &__details {
     position: absolute;
-    top: calc(100% + 20px);
-    left: 0;
-    right: 0;
-    min-height: 200px;
-    padding: 28px 29px 28px;
-    background: var(--panel-hover);
-    border-radius: 30px;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 29px;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-6px);
     transition:
       opacity 0.2s ease,
-      transform 0.2s ease,
       visibility 0.2s;
     pointer-events: none;
+  }
+
+  &:hover &__face,
+  &:focus-within &__face {
+    opacity: 0;
   }
 
   &:hover &__details,
   &:focus-within &__details {
     opacity: 1;
     visibility: visible;
-    transform: none;
   }
 
   &__details-title {
+    margin-bottom: 18px;
     font-size: 24px;
     font-weight: 400;
     line-height: 1.2;
-    margin-bottom: 24px;
   }
 
   &__details-list {
+    margin: 0;
     padding-left: 24px;
     font-size: 16px;
     font-weight: 300;

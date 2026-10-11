@@ -6,7 +6,8 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 33px;
+    --skills-gap: 33px; // wird auch vom Hover-Panel der SkillCard genutzt
+    gap: var(--skills-gap);
     margin-top: 42px;
   }
 
