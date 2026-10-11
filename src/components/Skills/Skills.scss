@@ -1,0 +1,21 @@
+.skills {
+  // Design Desktop: Section 744 -> 1673 px, Titel 71 px unter der Oberkante
+  --title-size-mobile: 40px;
+  padding-block: 71px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 33px;
+    margin-top: 42px;
+  }
+
+  // Design Mobile: Section 823 -> 1515 px, Titel ca. 74 px unter der Oberkante
+  @media (max-width: 900px) {
+    padding-block: 74px 94px;
+
+    &__carousel {
+      margin-top: 50px;
+    }
+  }
+}
