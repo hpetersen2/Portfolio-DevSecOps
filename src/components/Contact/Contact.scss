@@ -1,0 +1,80 @@
+.contact {
+  // Design Desktop: Section beginnt bei 2342 px, Titel 71 px darunter
+  --title-size-mobile: 32px;
+  padding-top: 71px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 445px;
+    margin-top: 27px;
+  }
+
+  &__info {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.4;
+
+    ul {
+      margin: 0;
+      padding-left: 24px;
+    }
+  }
+
+  // Rechte Spalte beginnt auf Höhe der Titel-Grundlinie
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: -66px;
+  }
+
+  &__lead {
+    margin-bottom: 13px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    align-self: flex-start;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--white);
+    text-decoration: none;
+
+    &--underline span,
+    &:hover span {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+
+  // Design Mobile: Titel 32 px, alles untereinander
+  @media (max-width: 900px) {
+    padding-top: 79px;
+
+    &__grid {
+      grid-template-columns: 1fr;
+      margin-top: 38px;
+    }
+
+    &__info {
+      font-size: 16px;
+      line-height: 1.15;
+      text-align: justify;
+    }
+
+    &__links {
+      margin-top: 50px;
+      gap: 16px;
+    }
+
+    &__lead {
+      margin-bottom: 14px;
+      font-size: 20px;
+    }
+  }
+}
